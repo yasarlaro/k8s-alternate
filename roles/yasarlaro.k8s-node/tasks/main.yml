@@ -36,7 +36,7 @@
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
 
-- name: Install the latest version of Docker Engine - Community and containerd
+- name: "Install {{ docker_version }} version of Docker Engine - Community Edition"
   yum:
     name:
       - "docker-ce-{{ docker_version }}"
@@ -101,7 +101,7 @@
       - https://packages.cloud.google.com/yum/doc/yum-key.gpg
       - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg    
 
-- name: Install Kubernetes binaries
+- name: "Install Kubernetes v{{ k8s_version }} binaries"
   yum: 
     name:
       - "kubelet-{{ k8s_version }}"

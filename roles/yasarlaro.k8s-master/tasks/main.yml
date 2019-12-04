@@ -101,7 +101,7 @@
       - https://packages.cloud.google.com/yum/doc/yum-key.gpg
       - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg    
 
-- name: Install Kubernetes binaries
+- name: "Install Kubernetes v{{ k8s_version }} binaries"
   yum: 
     name:
       - "kubelet-{{ k8s_version }}"
@@ -164,7 +164,7 @@
 - name: Restart kubelet
   service:
     name: kubelet
-    status: restarted
+    state: restarted
 
 - name: Fetch the token to localhost
   fetch:
